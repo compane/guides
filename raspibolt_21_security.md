@@ -31,7 +31,7 @@ $ sudo apt install ufw
 $ sudo su
 $ ufw default deny incoming
 $ ufw default allow outgoing
-$ ufw allow 22    comment 'allow SSH from LAN'
+$ ufw allow from 192.168.0.0/24 to any port 22 comment 'allow SSH from LAN'
 $ ufw allow 8333  comment 'allow Bitcoin'
 $ ufw allow 9735  comment 'allow Lightning'
 $ ufw allow 50002 comment 'allow Electrum SSL'
@@ -42,7 +42,7 @@ $ ufw status
 >
 > To                         Action      From
 > --                         ------      ----
-> 22                         ALLOW       Anywhere                   # allow SSH from LAN
+> 22                         ALLOW       192.168.0.0/24             # allow SSH from LAN
 > 8333                       ALLOW       Anywhere                   # allow Bitcoin
 > 9735                       ALLOW       Anywhere                   # allow Lightning
 > 50002                      ALLOW       Anywhere                   # allow Electrum
